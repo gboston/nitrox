@@ -44,7 +44,7 @@ class KubernetesInterface(object):
         try:
             # TODO:support other namespace
             response = self.client.get(url=api,
-                                       namespace=namespace)
+                                       namespace=self.app_info['namespace'])
         except requests.exceptions.RequestException as e:
             logger.error('Error while calling  %s:%s', api, e.message)
             success = False  # TODO: throw exception
